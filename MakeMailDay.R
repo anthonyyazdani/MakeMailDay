@@ -126,3 +126,109 @@ ui <- (
     )
   )
 )
+#----------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------
+
+
+#----------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------
+server <- function(input, output, session){
+  
+  output$video <- renderUI({
+    tags$iframe(src = "https://www.youtube.com/embed/pp95UwZGD8Y?controls=0&amp;start=75", width = 350, height = 500)
+  })
+  
+  my_sheets <- gs_ls()
+  my_sheets <- my_sheets$sheet_title
+  
+  initialization <- t(c(1,8))
+  colnames(initialization) <- c("Note","Heure")
+  initialization <- as.data.frame(initialization)
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))<1){
+    
+    
+    showNotification("Initialization of matrices of the day")
+    showNotification("It might be quite long")
+    showNotification("Wait for the end of the 10 steps")
+    
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 1/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Sciences économiques et sociales - 1st"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 2/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 3/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Espace presse - 1st"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Espace presse - 1st"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 4/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Droit - 2nd"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Droit - 2nd"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 5/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 6/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 7/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 8/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 9/10 ✔ - Initialization")
+  }
+  
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))<1){
+    
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))
+    gs_edit_cells(mat, input = initialization, trim = TRUE)
+    
+    showNotification("Step 10/10 ✔ - Initialization")
+    showNotification("The matrices have been initialized, enjoy.")
+    
+  }
