@@ -232,3 +232,120 @@ server <- function(input, output, session){
     showNotification("The matrices have been initialized, enjoy.")
     
   }
+  
+  observeEvent(input$submit, {                                                                 
+    if (as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))>=8 && as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))<23){
+      valeur <- t(c(input$integer, as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))))
+      name <- paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),input$section)
+      name2 <- paste(input$section)
+      
+      be <- gs_title(name)
+      showNotification("Loading...")
+      gs_add_row(be, ws = 1, input = valeur[1:2])
+      be2 <- gs_title(name2)
+      gs_add_row(be2, ws = 1, input = valeur[1:2])
+      showNotification("Thank you ! Your contribution has been taken into account.",
+                       action = a(href = "javascript:location.reload();", "Reload page"))
+    }else{showNotification("To contribute, come back between 8:00 and 23:00. See you soon :)", duration = 10, closeButton = TRUE, type = "message")}
+  })
+  
+  #----------------------------------------------------------------------------------
+  #First floor
+  #----------------------------------------------------------------------------------
+  
+  observeEvent(input$section, {
+    if(input$section=="1st floor Droit - 1st"){
+      output$map <- renderPlot({
+        par(bg="#ecf0f5")
+        plot(c(1.3675,1.32875,1.29,1.01,1.01,1.06,1.06,1.095,1.095,1.225,1.29,1.29,1.445,1.445,1.50,1.53,1.53,1.50,1.455,1.41,1.41,1.725,1.725,1.68,1.68,1.55,1.55,1.64,1.64,1.69,1.69,1.725,1.725,1.705,1.685,1.685,1.445,1.40625,1.3675),c(1.98,1.97,1.94,1.94,1.77,1.77,1.70,1.70,1.559,1.559,1.65,1.86,1.86,1.65,1.55,1.55,1.43,1.43,1.34,1.34,1.03,1.03,1.14,1.14,1.43,1.43,1.55,1.55,1.695,1.695,1.805,1.805,1.89,1.89,1.915,1.94,1.94,1.97,1.98),cex=0, ylab = "", axes=FALSE, xlab = "", main = "First floor")
+        lines(c(1.3675,1.32875,1.29,1.01,1.01,1.06,1.06,1.095,1.095,1.225,1.29,1.29,1.445,1.445,1.50,1.53,1.53,1.50,1.455,1.41,1.41,1.725,1.725,1.68,1.68,1.55,1.55,1.64,1.64,1.69,1.69,1.725,1.725,1.705,1.685,1.685,1.445,1.40625,1.3675),c(1.98,1.97,1.94,1.94,1.77,1.77,1.70,1.70,1.559,1.559,1.65,1.86,1.86,1.65,1.55,1.55,1.43,1.43,1.34,1.34,1.03,1.03,1.14,1.14,1.43,1.43,1.55,1.55,1.695,1.695,1.805,1.805,1.89,1.89,1.915,1.94,1.94,1.97,1.98),col="black")
+        text(c(1.37,1.37), c(1.01,2), labels = c("Boulevard du Pont-d'Arve","Parc Baud-Bovy"), cex = 0.7)
+        #------couleur droit------#
+        polygon(c(1.29,1.01,1.01,1.06,1.06,1.095,1.095,1.225,1.29,1.29),c(1.94,1.94,1.77,1.77,1.70,1.70,1.559,1.559,1.65,1.94) , density = NULL, angle = 45,
+                border = NULL, col = "#e83d38", lty = par("lty"), fillOddEven = FALSE)
+        #-----patio bloc 0-----#
+        lines(c(1.13,1.235,1.235,1.13,1.13),c(1.61,1.61,1.75,1.75,1.61))
+        polygon(c(1.13,1.235,1.235,1.13,1.13),c(1.61,1.61,1.75,1.75,1.61), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.1825,1.68, "Block 0", cex=0.7, col="white" )
+        #-----patio bloc 2-----#
+        lines(c(1.50,1.605,1.605,1.50,1.50),c(1.61,1.61,1.75,1.75,1.61))
+        polygon(c(1.50,1.605,1.605,1.50,1.50),c(1.61,1.61,1.75,1.75,1.61), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.5525,1.68, "Block 2", cex=0.7, col="white" )
+        #-----patio bloc 3-----#
+        lines(c(1.537,1.63,1.63,1.537,1.537),c(1.22,1.22,1.36,1.36,1.22))
+        polygon(c(1.537,1.63,1.63,1.537,1.537),c(1.22,1.22,1.36,1.36,1.22), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.5835,1.29, "Block 3", cex=0.7, col="white" )
+        text(1.3675,1.9, "Baud-Bovy entrance", cex=0.7, col="Black")
+        text(1.4,1.402, "Pont-D'arve entrance", cex=0.7, col="Black")
+        points(1.37,1.86, col="red", pch=20, cex=1.5)
+        points(1.47,1.37, col="red", pch=20, cex=1.5)},
+        #height = 400, width = 400
+        
+      )}
+    
+    if(input$section=="1st floor Sciences économiques et sociales - 1st"){
+      output$map <- renderPlot({
+        par(bg="#ecf0f5")
+        plot(c(1.3675,1.32875,1.29,1.01,1.01,1.06,1.06,1.095,1.095,1.225,1.29,1.29,1.445,1.445,1.50,1.53,1.53,1.50,1.455,1.41,1.41,1.725,1.725,1.68,1.68,1.55,1.55,1.64,1.64,1.69,1.69,1.725,1.725,1.705,1.685,1.685,1.445,1.40625,1.3675),c(1.98,1.97,1.94,1.94,1.77,1.77,1.70,1.70,1.559,1.559,1.65,1.86,1.86,1.65,1.55,1.55,1.43,1.43,1.34,1.34,1.03,1.03,1.14,1.14,1.43,1.43,1.55,1.55,1.695,1.695,1.805,1.805,1.89,1.89,1.915,1.94,1.94,1.97,1.98),cex=0, ylab = "", axes=FALSE, xlab = "", main = "First floor")
+        lines(c(1.3675,1.32875,1.29,1.01,1.01,1.06,1.06,1.095,1.095,1.225,1.29,1.29,1.445,1.445,1.50,1.53,1.53,1.50,1.455,1.41,1.41,1.725,1.725,1.68,1.68,1.55,1.55,1.64,1.64,1.69,1.69,1.725,1.725,1.705,1.685,1.685,1.445,1.40625,1.3675),c(1.98,1.97,1.94,1.94,1.77,1.77,1.70,1.70,1.559,1.559,1.65,1.86,1.86,1.65,1.55,1.55,1.43,1.43,1.34,1.34,1.03,1.03,1.14,1.14,1.43,1.43,1.55,1.55,1.695,1.695,1.805,1.805,1.89,1.89,1.915,1.94,1.94,1.97,1.98),col="black")
+        text(c(1.37,1.37), c(1.01,2), labels = c("Boulevard du Pont-d'Arve","Parc Baud-Bovy"), cex = 0.7)
+        #-------couleur SES------#
+        polygon(c(1.445,1.445,1.50,1.53,1.55,1.64,1.64,1.69,1.69,1.69,1.65,1.65,1.445),c(1.86,1.65,1.55,1.55,1.55,1.55,1.695,1.695,1.805,1.825,1.89,1.94,1.94) , density = NULL, angle = 45,
+                border = NULL, col = "#f6b002", lty = par("lty"), fillOddEven = FALSE)
+        #-----patio bloc 0-----#
+        lines(c(1.13,1.235,1.235,1.13,1.13),c(1.61,1.61,1.75,1.75,1.61))
+        polygon(c(1.13,1.235,1.235,1.13,1.13),c(1.61,1.61,1.75,1.75,1.61), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.1825,1.68, "Block 0", cex=0.7, col="white" )
+        #-----patio bloc 2-----#
+        lines(c(1.50,1.605,1.605,1.50,1.50),c(1.61,1.61,1.75,1.75,1.61))
+        polygon(c(1.50,1.605,1.605,1.50,1.50),c(1.61,1.61,1.75,1.75,1.61), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.5525,1.68, "Block 2", cex=0.7, col="white" )
+        #-----patio bloc 3-----#
+        lines(c(1.537,1.63,1.63,1.537,1.537),c(1.22,1.22,1.36,1.36,1.22))
+        polygon(c(1.537,1.63,1.63,1.537,1.537),c(1.22,1.22,1.36,1.36,1.22), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.5835,1.29, "Block 3", cex=0.7, col="white" )
+        text(1.3675,1.9, "Baud-Bovy entrance", cex=0.7, col="Black")
+        text(1.4,1.402, "Pont-D'arve entrance", cex=0.7, col="Black")
+        points(1.37,1.86, col="red", pch=20, cex=1.5)
+        points(1.47,1.37, col="red", pch=20, cex=1.5)},
+        #height = 400, width = 400
+        
+      )}
+    
+    if(input$section=="1st floor Psychologie et science de l'éducation - 1st"){
+      output$map <- renderPlot({
+        par(bg="#ecf0f5")
+        plot(c(1.3675,1.32875,1.29,1.01,1.01,1.06,1.06,1.095,1.095,1.225,1.29,1.29,1.445,1.445,1.50,1.53,1.53,1.50,1.455,1.41,1.41,1.725,1.725,1.68,1.68,1.55,1.55,1.64,1.64,1.69,1.69,1.725,1.725,1.705,1.685,1.685,1.445,1.40625,1.3675),c(1.98,1.97,1.94,1.94,1.77,1.77,1.70,1.70,1.559,1.559,1.65,1.86,1.86,1.65,1.55,1.55,1.43,1.43,1.34,1.34,1.03,1.03,1.14,1.14,1.43,1.43,1.55,1.55,1.695,1.695,1.805,1.805,1.89,1.89,1.915,1.94,1.94,1.97,1.98),cex=0, ylab = "", axes=FALSE, xlab = "", main = "First floor")
+        lines(c(1.3675,1.32875,1.29,1.01,1.01,1.06,1.06,1.095,1.095,1.225,1.29,1.29,1.445,1.445,1.50,1.53,1.53,1.50,1.455,1.41,1.41,1.725,1.725,1.68,1.68,1.55,1.55,1.64,1.64,1.69,1.69,1.725,1.725,1.705,1.685,1.685,1.445,1.40625,1.3675),c(1.98,1.97,1.94,1.94,1.77,1.77,1.70,1.70,1.559,1.559,1.65,1.86,1.86,1.65,1.55,1.55,1.43,1.43,1.34,1.34,1.03,1.03,1.14,1.14,1.43,1.43,1.55,1.55,1.695,1.695,1.805,1.805,1.89,1.89,1.915,1.94,1.94,1.97,1.98),col="black")
+        text(c(1.37,1.37), c(1.01,2), labels = c("Boulevard du Pont-d'Arve","Parc Baud-Bovy"), cex = 0.7)
+        #-------couleur Science de l'éduc psycho------#
+        polygon(c(1.53,1.50,1.455,1.41,1.41,1.725,1.725,1.68,1.68,1.55,1.53),c(1.43,1.43,1.34,1.34,1.03,1.03,1.14,1.14,1.43,1.43,1.43) , density = NULL, angle = 45,
+                border = NULL, col = "#c29705", lty = par("lty"), fillOddEven = FALSE)
+        #-----patio bloc 0-----#
+        lines(c(1.13,1.235,1.235,1.13,1.13),c(1.61,1.61,1.75,1.75,1.61))
+        polygon(c(1.13,1.235,1.235,1.13,1.13),c(1.61,1.61,1.75,1.75,1.61), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.1825,1.68, "Block 0", cex=0.7, col="white" )
+        #-----patio bloc 2-----#
+        lines(c(1.50,1.605,1.605,1.50,1.50),c(1.61,1.61,1.75,1.75,1.61))
+        polygon(c(1.50,1.605,1.605,1.50,1.50),c(1.61,1.61,1.75,1.75,1.61), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.5525,1.68, "Block 2", cex=0.7, col="white" )
+        #-----patio bloc 3-----#
+        lines(c(1.537,1.63,1.63,1.537,1.537),c(1.22,1.22,1.36,1.36,1.22))
+        polygon(c(1.537,1.63,1.63,1.537,1.537),c(1.22,1.22,1.36,1.36,1.22), density = NULL, angle = 45,
+                border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
+        text(1.5835,1.29, "Block 3", cex=0.7, col="white" )
+        text(1.3675,1.9, "Baud-Bovy entrance", cex=0.7, col="Black")
+        text(1.4,1.402, "Pont-D'arve entrance", cex=0.7, col="Black")
+        points(1.37,1.86, col="red", pch=20, cex=1.5)
+        points(1.47,1.37, col="red", pch=20, cex=1.5)},
+        #height = 400, width = 400
+        
+      )}  
