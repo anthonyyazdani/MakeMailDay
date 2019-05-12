@@ -1760,5 +1760,471 @@ server <- function(input, output, session){
   sol = t(sol)}
   })
   
+  #----------------------Historique----------------------#
+  
+  AnalyseTraduction2ndHist <- eventReactive(input$submit2j, {search1010 <- gs_title(paste("2nd floor","Traduction - 2nd"))
+  a <- na.omit(gs_read(ss=search1010, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  
+  output$hist1 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseDroit1st()[,2],AnalyseDroit1st()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseDroit1st()[,2],AnalyseDroit1st()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseDroit1st()[,2],AnalyseDroit1st()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseDroit1st()[,2],AnalyseDroit1st()[,1], col = "#C30000", lwd=7)
+  })
+  
+  #--------------Historique--------------#
+  
+  output$hist1hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseDroit1stHist()[,2],AnalyseDroit1stHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseDroit1stHist()[,2],AnalyseDroit1stHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseDroit1stHist()[,2],AnalyseDroit1stHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseDroit1stHist()[,2],AnalyseDroit1stHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist2 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseScienceséconomiquesetsociales1st()[,2],AnalyseScienceséconomiquesetsociales1st()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseScienceséconomiquesetsociales1st()[,2],AnalyseScienceséconomiquesetsociales1st()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseScienceséconomiquesetsociales1st()[,2],AnalyseScienceséconomiquesetsociales1st()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseScienceséconomiquesetsociales1st()[,2],AnalyseScienceséconomiquesetsociales1st()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist2hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseScienceséconomiquesetsociales1stHist()[,2],AnalyseScienceséconomiquesetsociales1stHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseScienceséconomiquesetsociales1stHist()[,2],AnalyseScienceséconomiquesetsociales1stHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseScienceséconomiquesetsociales1stHist()[,2],AnalyseScienceséconomiquesetsociales1stHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseScienceséconomiquesetsociales1stHist()[,2],AnalyseScienceséconomiquesetsociales1stHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist3 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalysePsychologieetsciencedeléducation1st()[,2],AnalysePsychologieetsciencedeléducation1st()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalysePsychologieetsciencedeléducation1st()[,2],AnalysePsychologieetsciencedeléducation1st()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalysePsychologieetsciencedeléducation1st()[,2],AnalysePsychologieetsciencedeléducation1st()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalysePsychologieetsciencedeléducation1st()[,2],AnalysePsychologieetsciencedeléducation1st()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist3hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalysePsychologieetsciencedeléducation1stHist()[,2],AnalysePsychologieetsciencedeléducation1stHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalysePsychologieetsciencedeléducation1stHist()[,2],AnalysePsychologieetsciencedeléducation1stHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalysePsychologieetsciencedeléducation1stHist()[,2],AnalysePsychologieetsciencedeléducation1stHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalysePsychologieetsciencedeléducation1stHist()[,2],AnalysePsychologieetsciencedeléducation1stHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist4 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseEspacepresse1st()[,2],AnalyseEspacepresse1st()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseEspacepresse1st()[,2],AnalyseEspacepresse1st()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseEspacepresse1st()[,2],AnalyseEspacepresse1st()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseEspacepresse1st()[,2],AnalyseEspacepresse1st()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist4hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseEspacepresse1stHist()[,2],AnalyseEspacepresse1stHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseEspacepresse1stHist()[,2],AnalyseEspacepresse1stHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseEspacepresse1stHist()[,2],AnalyseEspacepresse1stHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseEspacepresse1stHist()[,2],AnalyseEspacepresse1stHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist5 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseDroit2nd()[,2],AnalyseDroit2nd()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseDroit2nd()[,2],AnalyseDroit2nd()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseDroit2nd()[,2],AnalyseDroit2nd()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseDroit2nd()[,2],AnalyseDroit2nd()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist5hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseDroit2ndHist()[,2],AnalyseDroit2ndHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseDroit2ndHist()[,2],AnalyseDroit2ndHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseDroit2ndHist()[,2],AnalyseDroit2ndHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseDroit2ndHist()[,2],AnalyseDroit2ndHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist6 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseRelationinternationales2nd()[,2],AnalyseRelationinternationales2nd()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseRelationinternationales2nd()[,2],AnalyseRelationinternationales2nd()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseRelationinternationales2nd()[,2],AnalyseRelationinternationales2nd()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseRelationinternationales2nd()[,2],AnalyseRelationinternationales2nd()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist6hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseRelationinternationales2ndHist()[,2],AnalyseRelationinternationales2ndHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseRelationinternationales2ndHist()[,2],AnalyseRelationinternationales2ndHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseRelationinternationales2ndHist()[,2],AnalyseRelationinternationales2ndHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseRelationinternationales2ndHist()[,2],AnalyseRelationinternationales2ndHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist7 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseSciencessociales2nd()[,2],AnalyseSciencessociales2nd()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseSciencessociales2nd()[,2],AnalyseSciencessociales2nd()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseSciencessociales2nd()[,2],AnalyseSciencessociales2nd()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseSciencessociales2nd()[,2],AnalyseSciencessociales2nd()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist7hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseSciencessociales2ndHist()[,2],AnalyseSciencessociales2ndHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseSciencessociales2ndHist()[,2],AnalyseSciencessociales2ndHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseSciencessociales2ndHist()[,2],AnalyseSciencessociales2ndHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseSciencessociales2ndHist()[,2],AnalyseSciencessociales2ndHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist8 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseEconomieFinanceetmanagement2nd()[,2],AnalyseEconomieFinanceetmanagement2nd()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseEconomieFinanceetmanagement2nd()[,2],AnalyseEconomieFinanceetmanagement2nd()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseEconomieFinanceetmanagement2nd()[,2],AnalyseEconomieFinanceetmanagement2nd()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseEconomieFinanceetmanagement2nd()[,2],AnalyseEconomieFinanceetmanagement2nd()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist8hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseEconomieFinanceetmanagement2ndHist()[,2],AnalyseEconomieFinanceetmanagement2ndHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseEconomieFinanceetmanagement2ndHist()[,2],AnalyseEconomieFinanceetmanagement2ndHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseEconomieFinanceetmanagement2ndHist()[,2],AnalyseEconomieFinanceetmanagement2ndHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseEconomieFinanceetmanagement2ndHist()[,2],AnalyseEconomieFinanceetmanagement2ndHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist9 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseEspaceaudiovisuel2nd()[,2],AnalyseEspaceaudiovisuel2nd()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseEspaceaudiovisuel2nd()[,2],AnalyseEspaceaudiovisuel2nd()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseEspaceaudiovisuel2nd()[,2],AnalyseEspaceaudiovisuel2nd()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseEspaceaudiovisuel2nd()[,2],AnalyseEspaceaudiovisuel2nd()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist9hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseEspaceaudiovisuel2ndHist()[,2],AnalyseEspaceaudiovisuel2ndHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseEspaceaudiovisuel2ndHist()[,2],AnalyseEspaceaudiovisuel2ndHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseEspaceaudiovisuel2ndHist()[,2],AnalyseEspaceaudiovisuel2ndHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseEspaceaudiovisuel2ndHist()[,2],AnalyseEspaceaudiovisuel2ndHist()[,1], col = "#C30000", lwd=7)
+  })
+  
+  output$hist10 <- renderPlot({
+    showNotification("Loading...")
+    par(bg="#ecf0f5")
+    plot(AnalyseTraduction2nd()[,2],AnalyseTraduction2nd()[,1],
+         main = "Today", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseTraduction2nd()[,2],AnalyseTraduction2nd()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseTraduction2nd()[,2],AnalyseTraduction2nd()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseTraduction2nd()[,2],AnalyseTraduction2nd()[,1], col = "#C30000", lwd=7)
+  })
+  
+  
+  #--------------Historique--------------#
+  
+  output$hist10hist <- renderPlot({
+    par(bg="#ecf0f5")
+    plot(AnalyseTraduction2ndHist()[,2],AnalyseTraduction2ndHist()[,1],
+         main = "Historical data", xlab = "Time", ylab = "",
+         yaxt = "n", xaxt = "n", xlim = c(7,23), ylim = c(0,5), axes = F, pch=20, cex=1.4, col = "darkgrey")
+    axis(1, at = seq(7, 23, by = 1), las=1)
+    mtext(c("Nice","It's ok","Crowded","Full"), side = 2, at = seq(1, 4, by = 1), las=1)
+    lines(c(7,23),c(1,1), lty=2, col = "grey")
+    lines(c(7,23),c(2,2), lty=2, col = "grey")
+    lines(c(7,23),c(3,3), lty=2, col = "grey")
+    lines(c(7,23),c(4,4), lty=2, col = "grey")
+    clip(-1000,1000,0.7,2)
+    lines(AnalyseTraduction2ndHist()[,2],AnalyseTraduction2ndHist()[,1], col = "#3CB371", lwd=7)
+    clip(-1000,1000,2,3)
+    lines(AnalyseTraduction2ndHist()[,2],AnalyseTraduction2ndHist()[,1], col = "#FF8C00", lwd=7)
+    clip(-1000,1000,3,4.3)
+    lines(AnalyseTraduction2ndHist()[,2],AnalyseTraduction2ndHist()[,1], col = "#C30000", lwd=7)
+  })
   
   
