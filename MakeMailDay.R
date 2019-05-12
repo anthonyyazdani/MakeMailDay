@@ -1334,3 +1334,431 @@ server <- function(input, output, session){
   })
   
   
+  #-------------------------------"Relation internationales - 2nd"-------------------
+  #----------------------------------------------------------------------------------
+  
+  AnalyseRelationinternationales2nd <- eventReactive(input$submit2f, {search6 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))
+  a <- na.omit(gs_read(ss=search6, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  #----------------------Historique----------------------#
+  
+  AnalyseRelationinternationales2ndHist <- eventReactive(input$submit2f, {search66 <- gs_title(paste("2nd floor","Relation internationales - 2nd"))
+  a <- na.omit(gs_read(ss=search66, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  #-----------------------------"Sciences sociales - 2nd"----------------------------
+  #----------------------------------------------------------------------------------
+  
+  AnalyseSciencessociales2nd <- eventReactive(input$submit2g, {search7 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))
+  a <- na.omit(gs_read(ss=search7, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  #----------------------Historique----------------------#
+  
+  AnalyseSciencessociales2ndHist <- eventReactive(input$submit2g, {search77 <- gs_title(paste("2nd floor","Sciences sociales - 2nd"))
+  a <- na.omit(gs_read(ss=search77, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  #------------------------"Economie, Finance et management - 2nd"-------------------
+  #----------------------------------------------------------------------------------
+  
+  AnalyseEconomieFinanceetmanagement2nd <- eventReactive(input$submit2h, {search8 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
+  a <- na.omit(gs_read(ss=search8, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  #----------------------Historique----------------------#
+  
+  AnalyseEconomieFinanceetmanagement2ndHist <- eventReactive(input$submit2h, {search88 <- gs_title(paste("2nd floor","Economie, Finance et management - 2nd"))
+  a <- na.omit(gs_read(ss=search88, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  #--------------------------------"Espace audiovisuel - 2nd"------------------------
+  #----------------------------------------------------------------------------------
+  
+  AnalyseEspaceaudiovisuel2nd <- eventReactive(input$submit2i, {search9 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
+  a <- na.omit(gs_read(ss=search9, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  #----------------------Historique----------------------#
+  
+  AnalyseEspaceaudiovisuel2ndHist <- eventReactive(input$submit2i, {search99 <- gs_title(paste("2nd floor","Espace audiovisuel - 2nd"))
+  a <- na.omit(gs_read(ss=search99, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  #----------------------------------"Traduction - 2nd"------------------------------
+  #----------------------------------------------------------------------------------
+  
+  AnalyseTraduction2nd <- eventReactive(input$submit2j, {search10 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))
+  a <- na.omit(gs_read(ss=search10, ws = 1))
+  a <- as.data.frame(a)
+  a <- a[order(a[,2]),]
+  
+  coord = c(NA)
+  
+  for (i in min(a$Heure):max(a$Heure)){
+    
+    if (sum(t(which(a$Heure == i)))>=1){
+      
+      b = t(which(a$Heure == i))
+      for (j in length(b)){
+        coord = rbind(coord , b[j] )
+      }
+    }
+  }
+  
+  coord = na.omit(coord)
+  coord2= na.omit(coord)
+  
+  if ( dim(coord)[1]>=2){
+    
+    
+    for (i in length(coord):2){
+      coord[i] = coord[i]-coord[i-1]
+    }
+    
+    a <- as.matrix(a)
+    
+    sol = t(c(NA,NA))
+    ct=1
+    
+    lala <- t(rbind(t(coord2)-t(coord)+1,t(coord2)))
+    
+    for (i in 1:length(coord)){
+      sol = rbind(sol , t(c(round(mean(a[,1][lala[i,1]:lala[i,2]]), digits = 5),a[coord2[i],2])))
+    }
+    
+    sol = na.omit(sol)
+  }else{sol = c(mean(as.matrix(a)[,1]),as.matrix(a)[1,2])
+  sol = t(sol)}
+  })
+  
+  
+  
