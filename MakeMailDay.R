@@ -27,7 +27,7 @@ ui <- (
                     menuItem("More", icon = icon("plus"), startExpanded = F,
                              menuSubItem("Find documents",  href = "https://www.unige.ch/biblio/fr/trouver-des-documents/"),
                              menuSubItem("Work booths",  href = "https://rdm.unige.ch/cabine/unimail-groupe/SitePages/Cabines%20de%20groupe.aspx")),
-                    menuItem("Available on Android",  href = "https://mega.nz/#!XOJk1IDR!pzJkRwJKIrkDIzRemmF3fh3LRVV9LZfq4Y9RftFgo3M", icon = icon("android"), badgeLabel = "β", badgeColor = "green"),
+                    menuItem("Available on Android",  href = "https://mega.nz/#!XOJk1IDR!pzJkRwJKIrkDIzRemmF3fh3LRVV9LZfq4Y9RftFgo3M", icon = icon("android"), badgeLabel = "β", badgeColor = "green")
                     # https://fontawesome.com/icons?d=gallery
                   )
                 ),
@@ -135,7 +135,8 @@ ui <- (
 server <- function(input, output, session){
   
   output$video <- renderUI({
-    tags$iframe(src = "https://www.youtube.com/embed/pp95UwZGD8Y?controls=0&amp;start=75", width = 350, height = 500)
+    #tags$iframe(src = "https://www.youtube.com/embed/G9YHgGHyrlk", width = 350, height = 500)
+    HTML(paste('<iframe width="300" height="530" src="https://www.youtube.com/embed/FM9I9nz_r_s?rel=0&controls=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'))
   })
   
   my_sheets <- gs_ls()
@@ -2227,4 +2228,104 @@ server <- function(input, output, session){
     lines(AnalyseTraduction2ndHist()[,2],AnalyseTraduction2ndHist()[,1], col = "#C30000", lwd=7)
   })
   
+  observeEvent(input$submit3, {
+    search1 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))
+    namea1 = noquote(paste("1st floor","Droit"))
+    a1 <- as.data.frame(na.omit(gs_read(ss=search1, ws = 1)))
+    a1 <-a1[,1][dim(a1)[1]]
+    
+    showNotification("Step 1/10 ✔ - Ranking")
+    
+    search2 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
+    namea2 = noquote(paste("1st floor","Sciences économiques et sociales"))
+    a2 <- as.data.frame(na.omit(gs_read(ss=search2, ws = 1)))
+    a2 <-a2[,1][dim(a2)[1]]
+    
+    showNotification("Step 2/10 ✔ - Ranking")
+    
+    search3 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
+    namea3 = noquote(paste("1st floor","Psychologie et science de l'éducation"))
+    a3 <- as.data.frame(na.omit(gs_read(ss=search3, ws = 1)))
+    a3 <-a3[,1][dim(a3)[1]]
+    
+    showNotification("Step 3/10 ✔ - Ranking")
+    
+    search4 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Espace presse - 1st"))
+    namea4 = noquote(paste("1st floor","Espace presse"))
+    a4 <- as.data.frame(na.omit(gs_read(ss=search4, ws = 1)))
+    a4 <-a4[,1][dim(a4)[1]]
+    
+    showNotification("Step 4/10 ✔ - Ranking")
+    
+    search5 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Droit - 2nd"))
+    namea5 = noquote(paste("2nd floor","Droit"))
+    a5 <- as.data.frame(na.omit(gs_read(ss=search5, ws = 1)))
+    a5 <-a5[,1][dim(a5)[1]]
+    
+    showNotification("Step 5/10 ✔ - Ranking")
+    
+    search6 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))
+    namea6 = noquote(paste("2nd floor","Relation internationales"))
+    a6 <- as.data.frame(na.omit(gs_read(ss=search6, ws = 1)))
+    a6 <-a6[,1][dim(a6)[1]]
+    
+    showNotification("Step 6/10 ✔ - Ranking")
+    
+    search7 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))
+    namea7 = noquote(paste("2nd floor","Sciences sociales"))
+    a7 <- as.data.frame(na.omit(gs_read(ss=search7, ws = 1)))
+    a7 <-a7[,1][dim(a7)[1]]
+    
+    showNotification("Step 7/10 ✔ - Ranking")
+    
+    search8 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
+    namea8 = noquote(paste("2nd floor","Economie, Finance et management"))
+    a8 <- as.data.frame(na.omit(gs_read(ss=search8, ws = 1)))
+    a8 <-a8[,1][dim(a8)[1]]
+    
+    showNotification("Step 8/10 ✔ - Ranking")
+    
+    search9 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
+    namea9 = noquote(paste("2nd floor","Espace audiovisuel"))
+    a9 <- as.data.frame(na.omit(gs_read(ss=search9, ws = 1)))
+    a9 <-a9[,1][dim(a9)[1]]
+    
+    showNotification("Step 9/10 ✔ - Ranking")
+    
+    search10 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))
+    namea10 = noquote(paste("2nd floor","Traduction"))
+    a10 <- as.data.frame(na.omit(gs_read(ss=search10, ws = 1)))
+    a10 <-a10[,1][dim(a10)[1]]
+    
+    showNotification("Step 10/10 ✔ - Ranking")
+    
+    topplaces = c(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
+    topplaces = t(rbind(topplaces,c(namea1,namea2,namea3,namea4,namea5,namea6,namea7,namea8,namea9,namea10)))
+    colnames(topplaces) <- c("lastmark","sections")
+    topplaces = topplaces[order(topplaces[,1]),]
+    topplaces = topplaces[,2]
+    topplaces1 = topplaces
+    topplaces1 = topplaces1[1:3]
+    topplaces2 = t(rbind(c("N°4","N°5","N°6","N°7","N°8","N°9","N°10"),topplaces[4:10]))
+    
+    output$ranking <- renderTable(topplaces2, colnames = FALSE ,spacing = "l")
+    
+    output$top1 <- renderValueBox({
+      valueBox("N°1", paste(topplaces1[1]), icon = icon("thumbs-up", lib = "glyphicon"),
+               color = "green")
+    })
+    output$top2 <- renderValueBox({
+      valueBox("N°2", paste(topplaces1[2]), icon = icon("thumbs-up", lib = "glyphicon"),
+               color = "orange")
+    })
+    
+    output$top3 <- renderValueBox({
+      valueBox("N°3", paste(topplaces1[3]), icon = icon("thumbs-up", lib = "glyphicon"),
+               color = "red")
+    })
+    #red, yellow, aqua, blue, light-blue, green, navy, teal, olive, lime, orange, fuchsia, purple, maroon, black.
+  })
   
+}
+
+shinyApp(ui, server)
