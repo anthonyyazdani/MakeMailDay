@@ -280,8 +280,7 @@ server <- function(input, output, session){
         text(1.3675,1.9, "Baud-Bovy entrance", cex=0.7, col="Black")
         text(1.4,1.402, "Pont-D'arve entrance", cex=0.7, col="Black")
         points(1.37,1.86, col="red", pch=20, cex=1.5)
-        points(1.47,1.37, col="red", pch=20, cex=1.5)},
-        #height = 400, width = 400
+        points(1.47,1.37, col="red", pch=20, cex=1.5)}
         
       )}
     
@@ -312,8 +311,7 @@ server <- function(input, output, session){
         text(1.3675,1.9, "Baud-Bovy entrance", cex=0.7, col="Black")
         text(1.4,1.402, "Pont-D'arve entrance", cex=0.7, col="Black")
         points(1.37,1.86, col="red", pch=20, cex=1.5)
-        points(1.47,1.37, col="red", pch=20, cex=1.5)},
-        #height = 400, width = 400
+        points(1.47,1.37, col="red", pch=20, cex=1.5)}
         
       )}
     
@@ -344,8 +342,7 @@ server <- function(input, output, session){
         text(1.3675,1.9, "Baud-Bovy entrance", cex=0.7, col="Black")
         text(1.4,1.402, "Pont-D'arve entrance", cex=0.7, col="Black")
         points(1.37,1.86, col="red", pch=20, cex=1.5)
-        points(1.47,1.37, col="red", pch=20, cex=1.5)},
-        #height = 400, width = 400
+        points(1.47,1.37, col="red", pch=20, cex=1.5)}
         
       )}  
     if(input$section=="1st floor Espace presse - 1st"){
@@ -376,8 +373,7 @@ server <- function(input, output, session){
         text(1.3675,1.9, "Baud-Bovy entrance", cex=0.7, col="Black")
         text(1.4,1.402, "Pont-D'arve entrance", cex=0.7, col="Black")
         points(1.37,1.86, col="red", pch=20, cex=1.5)
-        points(1.47,1.37, col="red", pch=20, cex=1.5)},
-        #height = 400, width = 400
+        points(1.47,1.37, col="red", pch=20, cex=1.5)}
         
       )}
     
@@ -461,8 +457,7 @@ server <- function(input, output, session){
                                                                                      ,1.1608843537415,1.1608843537415,1.1778911564626,1.4023809523810,1.419387755102,1.419387755102,1.4023809523810), density = NULL, angle = 45,
                 border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
         text(1.56788063915790,1.29013605442180, "Block 3", cex=0.7, col="black")
-      },
-      #height = 400, width = 400
+      }
       
       )}
     
@@ -537,8 +532,7 @@ server <- function(input, output, session){
                                                                                      ,1.1608843537415,1.1608843537415,1.1778911564626,1.4023809523810,1.419387755102,1.419387755102,1.4023809523810), density = NULL, angle = 45,
                 border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
         text(1.56788063915790,1.29013605442180, "Block 3", cex=0.7, col="black")
-      },
-      #height = 400, width = 400
+      }
       
       )}
     
@@ -618,8 +612,7 @@ server <- function(input, output, session){
                                                                                      ,1.1608843537415,1.1608843537415,1.1778911564626,1.4023809523810,1.419387755102,1.419387755102,1.4023809523810), density = NULL, angle = 45,
                 border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
         text(1.56788063915790,1.29013605442180, "Block 3", cex=0.7, col="black")
-      },
-      #height = 400, width = 400
+      }
       
       )}
     
@@ -695,8 +688,7 @@ server <- function(input, output, session){
                                                                                      ,1.1608843537415,1.1608843537415,1.1778911564626,1.4023809523810,1.419387755102,1.419387755102,1.4023809523810), density = NULL, angle = 45,
                 border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
         text(1.56788063915790,1.29013605442180, "Block 3", cex=0.7, col="black")
-      },
-      #height = 400, width = 400
+      }
       
       )}
     
@@ -771,8 +763,7 @@ server <- function(input, output, session){
                                                                                      ,1.1608843537415,1.1608843537415,1.1778911564626,1.4023809523810,1.419387755102,1.419387755102,1.4023809523810), density = NULL, angle = 45,
                 border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
         text(1.56788063915790,1.29013605442180, "Block 3", cex=0.7, col="black")
-      },
-      #height = 400, width = 400
+      }
       
       )}
     if(input$section=="2nd floor Traduction - 2nd"){
@@ -854,8 +845,7 @@ server <- function(input, output, session){
                                                                                      ,1.1608843537415,1.1608843537415,1.1778911564626,1.4023809523810,1.419387755102,1.419387755102,1.4023809523810), density = NULL, angle = 45,
                 border = NULL, col = "darkgreen", lty = par("lty"), fillOddEven = FALSE)
         text(1.56788063915790,1.29013605442180, "Block 3", cex=0.7, col="black")
-      },
-      #height = 400, width = 400
+      }
       
       )}
     
