@@ -6,7 +6,7 @@ library(googledrive)
 library(shinyWidgets)
 
 #rsconnect::showLogs() -> pour verifier pb sur web
-#gs_auth(token = "shiny_app_token.rds")
+gs_auth(token = "shiny_app_token.rds")
 
 ui <- (
   dashboardPage(skin = "green",
@@ -148,10 +148,8 @@ server <- function(input, output, session){
   
   if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))<1){
     
-    
-    showNotification("Initialization of matrices of the day")
-    showNotification("It might be quite long")
-    showNotification("Wait for the end of the 10 steps")
+    showNotification("You are the first user of the day! So you have to wait for the initialization of the daily matrices.", duration = 10)
+    showNotification("Wait for the end of the 10 steps", duration = 10)
     
     
     mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))
