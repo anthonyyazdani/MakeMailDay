@@ -233,7 +233,7 @@ server <- function(input, output, session){
   }
   
   observeEvent(input$submit, {                                                                 
-    if (as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))>=8 && as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))<23){
+    if (as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))>=8 && as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))<22){
       valeur <- t(c(input$integer, as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))))
       name <- paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),input$section)
       name2 <- paste(input$section)
@@ -245,7 +245,7 @@ server <- function(input, output, session){
       gs_add_row(be2, ws = 1, input = valeur[1:2])
       showNotification("Thank you ! Your contribution has been taken into account.",
                        action = a(href = "javascript:location.reload();", "Reload page"))
-    }else{showNotification("To contribute, come back between 8:00 and 23:00. See you soon :)", duration = 10, closeButton = TRUE, type = "message")}
+    }else{showNotification("To contribute, come back between 8:00 and 22:00. See you soon :)", duration = 10, closeButton = TRUE, type = "message")}
   })
   
   #----------------------------------------------------------------------------------
