@@ -146,85 +146,85 @@ server <- function(input, output, session){
   colnames(initialization) <- c("Note","Heure")
   initialization <- as.data.frame(initialization)
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Droit - 1st"))<1){
     
     showNotification("You are the first user of the day! So you have to wait for the initialization of the daily matrices.", duration = 10)
     showNotification("Wait for the end of the 10 steps", duration = 10)
     
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Droit - 1st"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 1/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Sciences économiques et sociales - 1st"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Sciences économiques et sociales - 1st"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 2/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 3/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Espace presse - 1st"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Espace presse - 1st"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Espace presse - 1st"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Espace presse - 1st"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 4/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Droit - 2nd"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Droit - 2nd"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Droit - 2nd"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Droit - 2nd"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 5/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Relation internationales - 2nd"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Relation internationales - 2nd"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 6/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Sciences sociales - 2nd"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Sciences sociales - 2nd"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 7/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Economie, Finance et management - 2nd"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 8/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Espace audiovisuel - 2nd"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 9/10 ✔ - Initialization")
   }
   
-  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))<1){
+  if (sum(my_sheets == paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Traduction - 2nd"))<1){
     
-    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))
+    mat <- gs_new(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Traduction - 2nd"))
     gs_edit_cells(mat, input = initialization, trim = TRUE)
     
     showNotification("Step 10/10 ✔ - Initialization")
@@ -235,7 +235,7 @@ server <- function(input, output, session){
   observeEvent(input$submit, {                                                                 
     if (as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))>=8 && as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))<23){
       valeur <- t(c(input$integer, as.numeric(noquote(format(Sys.time(), tz = "Europe/Zurich", "%H")))))
-      name <- paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),input$section)
+      name <- paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),input$section)
       name2 <- paste(input$section)
       
       be <- gs_title(name)
@@ -854,7 +854,7 @@ server <- function(input, output, session){
   #--------------------------------Droit1st------------------------------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseDroit1st <- eventReactive(input$submit2a, {search1 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))
+  AnalyseDroit1st <- eventReactive(input$submit2a, {search1 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Droit - 1st"))
   a <- na.omit(gs_read(ss=search1, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -948,7 +948,7 @@ server <- function(input, output, session){
   #------------------------------Scienceséconomiquesetsociales1st--------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseScienceséconomiquesetsociales1st <- eventReactive(input$submit2b, {search2 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
+  AnalyseScienceséconomiquesetsociales1st <- eventReactive(input$submit2b, {search2 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
   a <- na.omit(gs_read(ss=search2, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1042,7 +1042,7 @@ server <- function(input, output, session){
   #--------------------"Psychologie et science de l'éducation - 1st"-----------------
   #----------------------------------------------------------------------------------
   
-  AnalysePsychologieetsciencedeléducation1st <- eventReactive(input$submit2c, {search3 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
+  AnalysePsychologieetsciencedeléducation1st <- eventReactive(input$submit2c, {search3 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
   a <- na.omit(gs_read(ss=search3, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1136,7 +1136,7 @@ server <- function(input, output, session){
   #----------------------Espace presse - 1st-----------------------------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseEspacepresse1st <- eventReactive(input$submit2d, {search4 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Espace presse - 1st"))
+  AnalyseEspacepresse1st <- eventReactive(input$submit2d, {search4 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Espace presse - 1st"))
   a <- na.omit(gs_read(ss=search4, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1231,7 +1231,7 @@ server <- function(input, output, session){
   #------------------------------------"Droit - 2nd"---------------------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseDroit2nd <- eventReactive(input$submit2e, {search5 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Droit - 2nd"))
+  AnalyseDroit2nd <- eventReactive(input$submit2e, {search5 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Droit - 2nd"))
   a <- na.omit(gs_read(ss=search5, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1326,7 +1326,7 @@ server <- function(input, output, session){
   #-------------------------------"Relation internationales - 2nd"-------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseRelationinternationales2nd <- eventReactive(input$submit2f, {search6 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))
+  AnalyseRelationinternationales2nd <- eventReactive(input$submit2f, {search6 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Relation internationales - 2nd"))
   a <- na.omit(gs_read(ss=search6, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1421,7 +1421,7 @@ server <- function(input, output, session){
   #-----------------------------"Sciences sociales - 2nd"----------------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseSciencessociales2nd <- eventReactive(input$submit2g, {search7 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))
+  AnalyseSciencessociales2nd <- eventReactive(input$submit2g, {search7 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Sciences sociales - 2nd"))
   a <- na.omit(gs_read(ss=search7, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1516,7 +1516,7 @@ server <- function(input, output, session){
   #------------------------"Economie, Finance et management - 2nd"-------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseEconomieFinanceetmanagement2nd <- eventReactive(input$submit2h, {search8 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
+  AnalyseEconomieFinanceetmanagement2nd <- eventReactive(input$submit2h, {search8 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
   a <- na.omit(gs_read(ss=search8, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1610,7 +1610,7 @@ server <- function(input, output, session){
   #--------------------------------"Espace audiovisuel - 2nd"------------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseEspaceaudiovisuel2nd <- eventReactive(input$submit2i, {search9 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
+  AnalyseEspaceaudiovisuel2nd <- eventReactive(input$submit2i, {search9 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
   a <- na.omit(gs_read(ss=search9, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -1705,7 +1705,7 @@ server <- function(input, output, session){
   #----------------------------------"Traduction - 2nd"------------------------------
   #----------------------------------------------------------------------------------
   
-  AnalyseTraduction2nd <- eventReactive(input$submit2j, {search10 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))
+  AnalyseTraduction2nd <- eventReactive(input$submit2j, {search10 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Traduction - 2nd"))
   a <- na.omit(gs_read(ss=search10, ws = 1))
   a <- as.data.frame(a)
   a <- a[order(a[,2]),]
@@ -2217,70 +2217,70 @@ server <- function(input, output, session){
   })
   
   observeEvent(input$submit3, {
-    search1 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Droit - 1st"))
+    search1 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Droit - 1st"))
     namea1 = noquote(paste("1st floor","Droit"))
     a1 <- as.data.frame(na.omit(gs_read(ss=search1, ws = 1)))
     a1 <-a1[,1][dim(a1)[1]]
     
     showNotification("Step 1/10 ✔ - Ranking")
     
-    search2 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
+    search2 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Sciences économiques et sociales - 1st"))
     namea2 = noquote(paste("1st floor","Sciences économiques et sociales"))
     a2 <- as.data.frame(na.omit(gs_read(ss=search2, ws = 1)))
     a2 <-a2[,1][dim(a2)[1]]
     
     showNotification("Step 2/10 ✔ - Ranking")
     
-    search3 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
+    search3 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Psychologie et science de l'éducation - 1st"))
     namea3 = noquote(paste("1st floor","Psychologie et science de l'éducation"))
     a3 <- as.data.frame(na.omit(gs_read(ss=search3, ws = 1)))
     a3 <-a3[,1][dim(a3)[1]]
     
     showNotification("Step 3/10 ✔ - Ranking")
     
-    search4 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"1st floor","Espace presse - 1st"))
+    search4 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"1st floor","Espace presse - 1st"))
     namea4 = noquote(paste("1st floor","Espace presse"))
     a4 <- as.data.frame(na.omit(gs_read(ss=search4, ws = 1)))
     a4 <-a4[,1][dim(a4)[1]]
     
     showNotification("Step 4/10 ✔ - Ranking")
     
-    search5 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Droit - 2nd"))
+    search5 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Droit - 2nd"))
     namea5 = noquote(paste("2nd floor","Droit"))
     a5 <- as.data.frame(na.omit(gs_read(ss=search5, ws = 1)))
     a5 <-a5[,1][dim(a5)[1]]
     
     showNotification("Step 5/10 ✔ - Ranking")
     
-    search6 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Relation internationales - 2nd"))
+    search6 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Relation internationales - 2nd"))
     namea6 = noquote(paste("2nd floor","Relation internationales"))
     a6 <- as.data.frame(na.omit(gs_read(ss=search6, ws = 1)))
     a6 <-a6[,1][dim(a6)[1]]
     
     showNotification("Step 6/10 ✔ - Ranking")
     
-    search7 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Sciences sociales - 2nd"))
+    search7 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Sciences sociales - 2nd"))
     namea7 = noquote(paste("2nd floor","Sciences sociales"))
     a7 <- as.data.frame(na.omit(gs_read(ss=search7, ws = 1)))
     a7 <-a7[,1][dim(a7)[1]]
     
     showNotification("Step 7/10 ✔ - Ranking")
     
-    search8 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
+    search8 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Economie, Finance et management - 2nd"))
     namea8 = noquote(paste("2nd floor","Economie, Finance et management"))
     a8 <- as.data.frame(na.omit(gs_read(ss=search8, ws = 1)))
     a8 <-a8[,1][dim(a8)[1]]
     
     showNotification("Step 8/10 ✔ - Ranking")
     
-    search9 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
+    search9 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Espace audiovisuel - 2nd"))
     namea9 = noquote(paste("2nd floor","Espace audiovisuel"))
     a9 <- as.data.frame(na.omit(gs_read(ss=search9, ws = 1)))
     a9 <-a9[,1][dim(a9)[1]]
     
     showNotification("Step 9/10 ✔ - Ranking")
     
-    search10 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%b_%Y")),"2nd floor","Traduction - 2nd"))
+    search10 <- gs_title(paste(noquote(format(Sys.time(), tz = "Europe/Zurich", "%d_%m_%Y")),"2nd floor","Traduction - 2nd"))
     namea10 = noquote(paste("2nd floor","Traduction"))
     a10 <- as.data.frame(na.omit(gs_read(ss=search10, ws = 1)))
     a10 <-a10[,1][dim(a10)[1]]
