@@ -1,3 +1,11 @@
+---
+bibliography: [book.bib, packages.bib]
+biblio-style: "acm"
+link-citations: yes
+output: github_document
+---
+
+
 #Make Mail Day
 
 
