@@ -19,9 +19,9 @@ The sturcture of the code is the following:
   * The historical graphs are plotted by pulling the data of section matrices that stores all the grades given by the users and show a past trend for all the sections of the library.
   * The ranking tab code : takes the grade for the last hour for each section and compare wich has the best grade. A top 10 is created every day.
   
-  Hope you will enjoy the app, and if you go to the library, don't forget to contribute.
+  Hope you will enjoy the app, and if you go to the library, don't forget to contribute!
   
-  > "MAKE YOUR PERSONAL INTEREST AN ADVANTAGE FOR THE COMMUNITY"
+  > MAKE YOUR PERSONAL INTEREST AN ADVANTAGE FOR THE COMMUNITY
   
   
 
