@@ -1,12 +1,12 @@
----
-bibliography: [book.bib, packages.bib]
-biblio-style: "acm"
-link-citations: yes
-output: github_document
----
+# Project Title
 
+One Paragraph of project description goes here
 
-#Make Mail Day
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
 
 
 <a href="https://image.noelshack.com/fichiers/2019/20/2/1557824198-screen-shot-2019-05-14-at-10-55-39.png"></a>
