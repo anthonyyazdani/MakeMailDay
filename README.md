@@ -21,7 +21,7 @@ The sturcture of the code is the following:
   
   Hope you will enjoy the app, and if you go to the library, don't forget to contribute!
   
-  > MAKE YOUR PERSONAL INTEREST AN ADVANTAGE FOR THE COMMUNITY
+  > "MAKE YOUR PERSONAL INTEREST AN ADVANTAGE FOR THE COMMUNITY"
   
   
 
