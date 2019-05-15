@@ -1,7 +1,7 @@
 # Make Mail Day
 ###### Anthony Yazdani, Mehdi Benammou, Øyvind Dolincourt
 ![](https://image.noelshack.com/fichiers/2019/20/2/1557824198-screen-shot-2019-05-14-at-10-55-39.png)
-[!]("https://youtu.be/LHvEJiMOzSQ")
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://www.youtube.com/watch?v=LHvEJiMOzSQ)
 
 
 ## The project
