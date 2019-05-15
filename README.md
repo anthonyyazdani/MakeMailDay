@@ -1,7 +1,8 @@
 # Make Mail Day
 ###### Anthony Yazdani, Mehdi Benammou, Øyvind Dolincourt
 ![](https://image.noelshack.com/fichiers/2019/20/2/1557824198-screen-shot-2019-05-14-at-10-55-39.png)
-![](https://youtu.be/LHvEJiMOzSQ)
+![]("https://youtu.be/LHvEJiMOzSQ")
+
 
 ## The project
 Make Mail Day is a Shiny Web app designed to propose interesting services to Uni Mail students on a daily basis. The voting feature "Make our Day" enables the user of the app to contribute : a contribution means a grade for a certain area of the library. By voting, users give information to all the other users of the app about the current situation at the library and also contribute to understand the distribution and the habits of individuals within the library. The access to the ranking of the best section should be able to help students find their perfect spot to study. 
