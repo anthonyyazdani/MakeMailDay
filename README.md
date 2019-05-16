@@ -4,6 +4,8 @@
 [![IMAGE ALT TEXT HERE](https://image.noelshack.com/fichiers/2019/20/3/1557912191-makemaildayimagelink.png)](
 https://www.youtube.com/embed/LHvEJiMOzSQ)
 
+https://makemailday.shinyapps.io/MakeMailDay/
+
 ## The project
 Make Mail Day is a Shiny Web app designed to propose interesting services to Uni Mail students on a daily basis. The voting feature "Make our Day" enables the user of the app to contribute : a contribution means a grade for a certain area of the library. By voting, users give information to all the other users of the app about the current situation at the library and also contribute to understand the distribution and the habits of individuals within the library. The access to the ranking of the best section should be able to help students find their perfect spot to study. 
 
